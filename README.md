@@ -1,7 +1,7 @@
 # alive_max_garden
 
 ## About
-Software to run the ALIVE max garden sensor 205 application.
+Software to run the ALIVE max garden sensor 205 application. Written for Python 2.7.16.
 
 Remote gardening solution built using Raspberry Pi and Arduino.  Collects air, soil, temperature and humidity data from sensor probes (DHT11 and DS18B20) and displays them in real time graphs on a web application. Could be enhanced for more garden automation.
 

@@ -17,12 +17,13 @@ Power wirelessly using batteries to run and collect data anywhere.
        sudo apt-get install python-pandas
 
 4. Clone project to Raspberry Pi
+       
        git clone https://github.com/rjonesj/alive_max_garden
 
 5. Change into directory and run startup script
 
-    cd alive_max_garden
-    chmod +x startup.sh
-    ./startup.sh
+       cd alive_max_garden
+       chmod +x startup.sh
+       ./startup.sh
 
 6. Verify application is up by navigating to http://127.0.0.1:8080.  Other devices can connect on the local network by the ip listed in ifconfig.

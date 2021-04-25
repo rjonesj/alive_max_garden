@@ -18,6 +18,7 @@ app.layout = html.Div(
         dcc.Graph(id='live-update-graph2'),
         dcc.Graph(id='live-update-graph3'),
         dcc.Graph(id='live-update-graph4'),
+        dcc.Graph(id='live-update-graph5'),
         dcc.Interval(
             id='interval-component',
             interval=1*10000, # in milliseconds
@@ -32,6 +33,7 @@ app.layout = html.Div(
               Output('live-update-graph2', 'figure'),
               Output('live-update-graph3', 'figure'),
               Output('live-update-graph4', 'figure'),
+              Output('live-update-graph5', 'figure'),
               [Input('interval-component', 'n_intervals')])
 def update_graph_live(n):
     last_line = ''
@@ -41,7 +43,7 @@ def update_graph_live(n):
         last_line = line
     df = pd.read_csv(init.stemp_path)
     lines = last_line.split(",")
-    fig = px.line(df.tail(100), x='datetime', y='temperature', title='Sensor Temperature - '+lines[0]+", "+lines[1].strip()+" (F)")
+    fig = px.line(df.tail(100), x='datetime', y='temperature', title='Temperature Sensor - '+lines[0]+", "+lines[1].strip()+" (F)")
     
     last_line2 = ''
     with open(init.humidity_path) as f:
@@ -70,7 +72,15 @@ def update_graph_live(n):
     lines4 = last_line4.split(",")
     fig4 = px.line(df4.tail(100), x='datetime', y='temperature', title='Air Temperature - '+lines4[0]+", "+lines4[1].strip()+" (F)")
 
-    return fig, fig2, fig4, fig3
+    with open(init.moisture_path) as f:
+        for line in f:
+            pass
+        last_line5 = line
+    df5 = pd.read_csv(init.moisture_path)    
+    lines5 = last_line5.split(",")
+    fig5 = px.line(df5.tail(100), x='datetime', y='moisture', title='Moisture Sensor- '+lines5[0]+", "+lines5[1].strip())
+    
+    return fig, fig5, fig4, fig2, fig3
 
 
 if __name__ == '__main__':

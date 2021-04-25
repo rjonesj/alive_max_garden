@@ -20,6 +20,9 @@ while True:
 	elif line_split[0] == "Humidity":
 	    path = init.humidity_path
 	    print "Humidity = " + value + "%"
+	elif line_split[0] == "Moisture":
+	    path = init.moisture_path
+	    print "Moisture = " + value + "%"
 		
 	try:                    
 	    with open(path,'a') as f:

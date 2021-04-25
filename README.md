@@ -9,7 +9,7 @@ Power wirelessly using batteries to run and collect data anywhere.
 
 
 ## Setup
-1. Upload DHT11_Temp_and_Humidity_Sensor.ino to Arduino board and connect DHT11 sensor to Arduino.  Connect the Arduino via USB to Raspberry Pi.
+1. Upload Garden_Sensor.ino to Arduino board and connect DHT11 sensor to Arduino.  Connect the Arduino via USB to Raspberry Pi.
 2. Connect the DS18B20 sensor to the Raspberry Pi using GPIO interface.
 3. From a fresh Raspberry Pi image, install dash and pandas Python modules
        

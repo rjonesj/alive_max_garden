@@ -54,7 +54,7 @@ def update_graph_live(n):
         last_line2 = line
     df2 = pd.read_csv(init.humidity_path)    
     lines2 = last_line2.split(",")
-    fig2 = px.line(df2.tail(100), x='datetime', y='humidity', title='Humidity - '+lines2[0]+", "+lines2[1].strip()+"%")
+    fig2 = px.line(df2.tail(100), x='datetime', y='humidity', title='Air Humidity - '+lines2[0]+", "+lines2[1].strip()+"%")
     
     last_line3 = ''
     with open(init.rtemp_path) as f:
@@ -90,7 +90,7 @@ def update_graph_live(n):
     lines6 = last_line6.split(",")
     fig6 = px.line(df6.tail(100), x='datetime', y='lux', title='Light Sensor- '+lines6[0]+", "+lines6[1].strip() +" lx")
     
-    return fig, fig5, fig4, fig2, fig6, fig3
+    return fig, fig5, fig6, fig4, fig2, fig3
 
 
 if __name__ == '__main__':

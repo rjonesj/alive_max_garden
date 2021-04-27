@@ -19,6 +19,7 @@ app.layout = html.Div(
         dcc.Graph(id='live-update-graph3'),
         dcc.Graph(id='live-update-graph4'),
         dcc.Graph(id='live-update-graph5'),
+        dcc.Graph(id='live-update-graph6'),
         dcc.Interval(
             id='interval-component',
             interval=1*10000, # in milliseconds
@@ -34,6 +35,7 @@ app.layout = html.Div(
               Output('live-update-graph3', 'figure'),
               Output('live-update-graph4', 'figure'),
               Output('live-update-graph5', 'figure'),
+              Output('live-update-graph6', 'figure'),
               [Input('interval-component', 'n_intervals')])
 def update_graph_live(n):
     last_line = ''
@@ -80,7 +82,15 @@ def update_graph_live(n):
     lines5 = last_line5.split(",")
     fig5 = px.line(df5.tail(100), x='datetime', y='moisture', title='Moisture Sensor- '+lines5[0]+", "+lines5[1].strip())
     
-    return fig, fig5, fig4, fig2, fig3
+    with open(init.light_path) as f:
+        for line in f:
+            pass
+        last_line6 = line
+    df6 = pd.read_csv(init.light_path)    
+    lines6 = last_line6.split(",")
+    fig6 = px.line(df6.tail(100), x='datetime', y='lux', title='Light Sensor- '+lines6[0]+", "+lines6[1].strip() +" lx")
+    
+    return fig, fig5, fig4, fig2, fig6, fig3
 
 
 if __name__ == '__main__':

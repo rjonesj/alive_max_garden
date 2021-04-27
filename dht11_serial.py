@@ -23,6 +23,9 @@ while True:
 	elif line_split[0] == "Moisture":
 	    path = init.moisture_path
 	    print "Moisture = " + value
+	elif line_split[0] == "Lux":
+	    path = init.light_path
+	    print "Lux = " + value
 		
 	try:                    
 	    with open(path,'a') as f:
